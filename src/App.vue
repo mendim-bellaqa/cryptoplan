@@ -71,7 +71,7 @@ onMounted(() => {
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-12 w-12"
+                class="h-12 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="#14B8A6"
@@ -114,7 +114,7 @@ onMounted(() => {
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-12 w-12"
+                class="h-12 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="#EF4444"
