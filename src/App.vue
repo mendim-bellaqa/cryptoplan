@@ -195,7 +195,6 @@ onMounted(() => {
 
           <input type="text" name="takeprofit" id="takeprofit" placeholder="Take profit price" v-model="input_takeprofit" />
           <input type="text" name="stoploss" id="stoploss" placeholder="Stop loss price" v-model="input_stoploss" />
-
           <input type="text" name="liqprice" id="liqprice" placeholder="liq. price" v-model="input_liqprice" />
 	</div>
 
@@ -206,7 +205,7 @@ onMounted(() => {
 <section class="todo-list">
 
 	<!-- component -->
-<body class="antialiased font-sans bg-gray-200">
+<body class="antialiased font-sans">
     <div class="container mx-auto px-4 sm:px-8">
         <div class="py-8">
 	<div class="list" id="todo-list">
@@ -264,84 +263,77 @@ onMounted(() => {
                                     class="px-5 py-3 center border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Invest
                                 </th>
-                                <!-- <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Target
-                                </th>
-                                <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Profit
-                                </th>
-                                <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Status
-                                </th> -->
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td v-for="todo in trades_asc" :class="`todo-item ${todo.done && 'done'}`" >
-                              <label>
-				<input type="checkbox" v-model="todo.done" />
-				<span :class="`bubble ${todo.leverage == '10x' ? '10x' : '20x'}`"></span>
-			</label>
-			
-			<div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10">
-					<input class="tablediv" type="text" v-model="todo.content" /> 
-                                        </div>
-                              </div>
-                               
-			  <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10">
-					<input class="tablediv" type="text" v-model="todo.stoploss" /> 
-                                        </div>
-                              </div>
-                                
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-				<div class="flex-shrink-0 w-10 h-10">
-					<input class="tablediv" type="text" v-model="todo.liqprice" /> 
-                                        </div>
-                                </td>
+              </thead>
+                <tbody>
+                    <tr>
 
-			  
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <span
-                                        class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                        <span aria-hidden
-                                            class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                        <span class="relative">Activo</span>
-                                    </span>
-			      <div class="actions">
-				<button class="delete" @click="removeTodo(todo)">Delete</button>
-			</div>
-                                </td> 
-			</td>
-
-		
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div
-                        class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                        <span class="text-xs xs:text-sm text-gray-900">
-                            Showing 1 to 4 of 50 Entries
-                        </span>
-                        <div class="inline-flex mt-2 xs:mt-0">
-                            <button
-                                class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
-                                Prev
-                            </button>
-                            <button
-                                class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">
-                                Next
-                            </button>
-                        </div>
+                      <td v-for="todo in trades_asc" :class="`todo-item ${todo.done && 'done'}`" >
+              <label>
+                    <input type="checkbox" v-model="todo.done" />
+                    <span :class="`bubble ${todo.leverage == '10x' ? '10x' : '20x'}`"></span>
+                  </label>
+                  
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <input class="tablediv" type="text" v-model="todo.entry" /> 
                     </div>
+                  </div>
+                                          
+              <div class="flex items-center">
+                <div class="flex-shrink-0 w-10 h-10">
+                <input class="tablediv" type="text" v-model="todo.takeprofit" /> 
                 </div>
-            </div>
+                </div>
+                                            
+                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <input class="tablediv" type="text" v-model="todo.stoploss" /> 
+                    </div>
+                  </td>
+                  
+
+                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <span
+                              class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                              <span aria-hidden
+                                  class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                              <span class="relative">Win</span>
+                          </span>
+                          <span
+                              class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                              <span aria-hidden
+                                  class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+                              <span class="relative">Loss</span>
+                          </span>
+                        <div class="actions">
+                    <button class="delete" @click="removeTodo(todo)">Delete</button>
+                  </div>
+                </td> 
+              </td>
+                </tr>
+            </tbody>
+            </table>
+                  <div
+                      class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                      <span class="text-xs xs:text-sm text-gray-900">
+                          Showing 1 to 4 of 50 Entries
+                      </span>
+                      <div class="inline-flex mt-2 xs:mt-0">
+                          <button
+                              class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
+                              Prev
+                          </button>
+                          <button
+                              class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">
+                              Next
+                          </button>
+                      </div>
+                  </div>
+              </div>
         </div>
     </div>
+  </div>
 </body>
 </section>
 
